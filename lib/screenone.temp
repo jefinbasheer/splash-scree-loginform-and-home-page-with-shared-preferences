@@ -1,0 +1,52 @@
+import 'package:demoproject/screentwo.temp';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class Screenone extends StatelessWidget {
+  Screenone({super.key});
+  final texcontroller = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    getsavedata(context);
+    return Scaffold(
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: texcontroller,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                savedata();
+              },
+              child: const Text(
+                'save value',
+              ),
+            )
+          ],
+        ),
+      )),
+    );
+  }
+
+  Future<void> savedata() async {
+    // ignore: avoid_print
+    print(texcontroller.text);
+
+    //shared prefence
+    final sharedpref = await SharedPreferences.getInstance();
+    //save value
+    await sharedpref.setString('saved_value', texcontroller.text);
+  }
+
+  Future<void> getsavedata(BuildContext context) async {
+    final sharedpref = await SharedPreferences.getInstance();
+    final savedValue = sharedpref.getString('saved_value');
+    if (savedValue != null) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (ctx) => Screentwo()));
+    }
+  }
+}

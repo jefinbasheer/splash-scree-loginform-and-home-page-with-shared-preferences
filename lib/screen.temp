@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class Listview extends StatelessWidget {
+  const Listview({super.key, required List<Text> children});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('listview'),
+      ),
+      body: SafeArea(
+        child: ListView.separated(
+          itemBuilder: (ctx, index) {
+            return ListTile(
+              title: Text('PERSON $index'),
+              subtitle: Text('Messege $index'),
+              leading: const CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.blueGrey,
+                backgroundImage:
+                    AssetImage('assets/images/reactbasicfolderr.png'),
+              ),
+              trailing: Text('1$index:00PM'),
+            );
+          },
+          separatorBuilder: (ctx, index) {
+            return const Divider();
+          },
+          itemCount: 30,
+        ),
+      ),
+    );
+  }
+}

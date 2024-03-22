@@ -1,0 +1,140 @@
+//import 'dart:io';
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: const Color.fromARGB(0, 63, 63, 195),
+      ),
+      home: const Homescreen(),
+    );
+  }
+}
+
+class Homescreen extends StatelessWidget {
+  const Homescreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromRGBO(187, 221, 187, 1),
+      //appBar: AppBar(),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                color: Colors.black,
+                // width: double.infinity,
+                // height: double.infinity,
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Flutter',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 247, 244, 243),
+                        fontSize: 80,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            // ignore_for_file: avoid_print
+                            print("clicked");
+                          }, //anonymous function that is no function name but it ha sbody part and parameter
+                          child: const Text('click me'),
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.mic))
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        print("elevetaed");
+                      },
+                      child: const Text("click me"),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.teal,
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(
+                    color: const Color.fromARGB(255, 129, 191, 43),
+                    width: 10,
+                    style: BorderStyle.solid,
+                  ),
+                ),
+                child: const Center(
+                  child: Text("sample container"),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                color: Colors.deepOrangeAccent,
+                // width: double.infinity,
+                // height: double.infinity,
+                child: Column(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Flutter',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 247, 244, 243),
+                        fontSize: 80,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            print("clicked");
+                          }, //anonymous function that is no function name but it ha sbody part and parameter
+                          child: const Text('click me'),
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.mic))
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        print("elevetaed");
+                      },
+                      child: const Text("click me"),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

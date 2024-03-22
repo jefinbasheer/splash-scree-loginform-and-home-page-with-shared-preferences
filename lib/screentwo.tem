@@ -1,0 +1,30 @@
+/*import 'package:flutter/material.dart';
+
+class Screentwo extends StatelessWidget {
+  const Screentwo({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      /* appBar: AppBar(
+        backgroundColor: Colors.orange,
+        title: Text(name),
+      ),*/
+      body: SafeArea(
+        child: Column(
+          children: [
+            /* ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('go back'))*/
+            Text('value is present'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+*/
